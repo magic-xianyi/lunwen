@@ -4,9 +4,7 @@ import pandas as pd
 plt.rcParams["font.sans-serif"] = ["SimHei"]  # 设置字体中文乱码问题
 plt.rcParams["axes.unicode_minus"] = False  # 该语句解决图像中的“-”负号的乱码问题
 if __name__ == '__main__':
-    #去除gru模块各各参数均有下降，有效但不是最重要因素。
-    #去除ISOA模块precision下降最多，因为无关变量的影响大了，导致检测误报率变高了
-    #阈值模块这里使用普通的阈值方式，即使用训练经验得到的固定阈值，去除阈值模块后各指标都是最低，因为参考单一并且没有动态阈值
+
     precision = np.copy([0.9295, 0.8862, 0.9171, 0.8931])
     f1_socre = np.copy([0.8571, 0.82531, 0.8322, 0.8123])
     recall = np.empty(4)

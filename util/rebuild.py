@@ -24,7 +24,7 @@ def drawAIT201():
     plt.xlabel('时间索引', fontsize=13)
     plt.ylabel('传感器值', fontsize=13)
     plt.text(0.5, -0.185, '(a)', ha='center', va='center', transform=plt.gca().transAxes, fontsize=16)
-    plt.title('传感器AIT201原始及重构数据', fontsize=12)
+    plt.title('传感器AIT201原始及重构数据', fontsize=14)
     plt.legend(loc='lower right', fontsize=11)
     plt.show()
 
@@ -43,7 +43,7 @@ def drawPIT503():
     plt.ylabel('传感器值', fontsize=13)
     plt.text(0.5, -0.185, '(b)', ha='center', va='center', transform=plt.gca().transAxes, fontsize=16)
     plt.legend(fontsize=11)
-    plt.title('传感器PIT503原始及重构数据', fontsize=12)
+    plt.title('传感器PIT503原始及重构数据', fontsize=16)
     plt.show()
     return y2, y3
 
@@ -62,7 +62,7 @@ def drawFIT601():
     plt.ylabel('传感器值', fontsize=13)
     plt.text(0.5, -0.185, '(c)', ha='center', va='center', transform=plt.gca().transAxes, fontsize=16)
     plt.legend(fontsize=11)
-    plt.title('传感器FIT601原始及重构数据', fontsize=12)
+    plt.title('传感器FIT601原始及重构数据', fontsize=16)
     plt.show()
 
 def drawAIT504():
@@ -80,7 +80,7 @@ def drawAIT504():
     plt.ylabel('传感器值', fontsize=13)
     plt.text(0.5, -0.185, '(d)', ha='center', va='center', transform=plt.gca().transAxes, fontsize=16)
     plt.legend(fontsize=11)
-    plt.title('传感器AIT504原始及重构数据', fontsize=12)
+    plt.title('传感器AIT504原始及重构数据', fontsize=16)
     plt.show()
 
 if __name__ == '__main__':
