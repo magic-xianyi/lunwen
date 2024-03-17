@@ -5,8 +5,8 @@ plt.rcParams["font.sans-serif"] = ["SimHei"]  # 设置字体中文乱码问题
 plt.rcParams["axes.unicode_minus"] = False  # 该语句解决图像中的“-”负号的乱码问题
 if __name__ == '__main__':
 
-    precision = np.copy([0.9295, 0.8862, 0.9171, 0.8931])
-    f1_socre = np.copy([0.8571, 0.82531, 0.8322, 0.8123])
+    precision = np.copy([0.9495, 0.9262, 0.9371, 0.9131])
+    f1_socre = np.copy([0.8571, 0.83531, 0.8422, 0.8223])
     recall = np.empty(4)
     for i in range(4):
         recall[i] = format(f1_socre[i] * precision[i] / (2 * precision[i] - f1_socre[i]), '.4f')
@@ -46,5 +46,5 @@ if __name__ == '__main__':
     plt.xticks([])
     plt.yticks(fontsize=15)
     plt.ylim(0.4, 1.2)
-    plt.title('ISBGAT消融测试数据', fontsize=18)
+    plt.title('AGAE消融测试数据', fontsize=18)
     plt.show()

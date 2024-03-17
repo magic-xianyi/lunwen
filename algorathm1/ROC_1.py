@@ -20,7 +20,7 @@ if __name__ == '__main__':
     plt.plot(x_USAD, y_USAD,'pink', label='USAD:AUC=0.8948')
     plt.plot(x_trannd, y_trannd, 'mediumseagreen', label='THOC:AUC=0.8821')
     plt.plot(x_thoc, y_thoc, 'purple', label='TRanAD:AUC=0.8315')
-    plt.plot(x, y, 'r-', label='本章模型:AUC=0.9122')
+    plt.plot(x, y, 'r-', label='AGAE:AUC=0.9122')
     plt.plot([0, 1], [0, 1], '--')
 
     plt.xlabel('FPR')
