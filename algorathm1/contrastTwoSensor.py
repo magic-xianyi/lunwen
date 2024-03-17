@@ -6,7 +6,7 @@ plt.rcParams["axes.unicode_minus"] = False  # 该语句解决图像中的“-”
 
 if __name__ == '__main__':
 
-    name = ['THOC', 'USAD', 'TranAD', 'ISBGAT']
+    name = ['THOC', 'USAD', 'TranAD', 'AGAE']
     f1_score1 = np.copy([0.8421, 0.8077, 0.8254, 0.8571])
     f1_score2 = np.copy([0.7952, 0.7665, 0.7787, 0.84])
     # 1.将x轴转换为数值
@@ -20,7 +20,7 @@ if __name__ == '__main__':
     f1 = x + 2 * width
     plt.bar(re, f1_score1, width=width, color='lightsteelblue', label='AIT504')
     plt.bar(f1, f1_score2, width=width, color='wheat', label='PIT503')
-    plt.xticks(x + width, labels=name)
+    plt.xticks(x + 1.5*width, labels=name)
     plt.xlabel('模型', fontsize=12)
     plt.ylabel('F1_Score', fontsize=12)
     plt.legend()

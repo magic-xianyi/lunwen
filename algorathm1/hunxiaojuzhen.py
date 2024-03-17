@@ -5,17 +5,18 @@ import seaborn as sns
 plt.rcParams["font.sans-serif"] = ["SimHei"]  # 设置字体中文乱码问题
 plt.rcParams["axes.unicode_minus"] = False  # 该语句解决图像中的“-”负号的乱码问题
 if __name__ == '__main__':
-    TP = 11534 * 4 #真阳
-    FP = 875 * 4    #假阳
-    FN = 2971  * 4 #假阴
+    TP = 46136 #真阳
+    FP = 2453    #假阳
+    FN = 12931 #假阴
     TN = 97621 * 4 #真阴
     precision = TP / (TP + FP)
     recall = TP / (TP + FN)
     f1_score = 2 * precision * recall / (precision + recall)
 
     print("recall: {} \nprecision: {} \nf1_score: {}".format(recall, precision, f1_score))
+    #对比实验的数据表的数据
     f1_score = np.copy([0.8421, 0.8077, 0.8254, 0.8571])
-    precision = np.copy([0.9097, 0.9275, 0.9223, 0.9465])
+    precision = np.copy([0.9097, 0.9275, 0.9223, 0.9495])
     recall = np.empty(4)
     for i in range(4):
         recall[i] = f1_score[i] * precision[i] / (2 * precision[i] - f1_score[i])
