@@ -5,14 +5,9 @@ plt.rcParams["font.sans-serif"] = ["SimHei"]  # 设置字体中文乱码问题
 plt.rcParams["axes.unicode_minus"] = False  # 该语句解决图像中的“-”负号的乱码问题
 
 def quanzhong():
-
-
-
-
-
     precision = [0,0,0,0]
-    TP = [46136,45727,43569,41522]
-    FP = [2453,2312,2035,1682]
+    TP = [43258,45727 - (46136 - 43258),43569 - (46136 - 43258),41522 - (46136 - 43258)]
+    FP = [2301,2312 - (2453 - 2301),2035- (2453 - 2301),1682- (2453 - 2301)]
     for i in range(4):
         precision[i] = TP[i] / (TP[i] + FP[i])
     print("TP: {} \nFP: {} \nprecision: {}".format(TP, FP, precision))
