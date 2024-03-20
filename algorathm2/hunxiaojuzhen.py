@@ -38,19 +38,3 @@ if __name__ == '__main__':
     plt.title('混淆矩阵', fontsize=13)
     plt.show()
 
-    # 模拟数据的真正率和假正率
-    tpr = recall
-    fpr = 1 - precision
-
-    # 绘制ROC曲线
-    plt.figure()
-    plt.plot(fpr, tpr, color='orange', lw=2, label='ROC curve')
-    plt.plot([0, 1], [0, 1], color='navy', lw=2, linestyle='--')
-    plt.xlim([0.0, 1.0])
-    plt.ylim([0.0, 1.05])
-    plt.xlabel('False Positive Rate')
-    plt.ylabel('True Positive Rate')
-    plt.title('Receiver Operating Characteristic (ROC) Curve')
-    plt.legend(loc='lower right')
-    plt.show()
-

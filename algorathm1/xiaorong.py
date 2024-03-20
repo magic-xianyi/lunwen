@@ -46,5 +46,6 @@ if __name__ == '__main__':
     plt.xticks([])
     plt.yticks(fontsize=15)
     plt.ylim(0.4, 1.2)
+    plt.ylabel("数值", fontsize=18)
     plt.title('AGAE消融测试数据', fontsize=18)
     plt.show()

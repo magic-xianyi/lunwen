@@ -23,8 +23,8 @@ if __name__ == '__main__':
     plt.plot(x, y, 'r-', label='AGAE:AUC=0.9122')
     plt.plot([0, 1], [0, 1], '--')
 
-    plt.xlabel('FPR')
-    plt.ylabel('TPR')
+    plt.xlabel('假阳率')
+    plt.ylabel('真阳率')
     plt.title('ROC 曲线')
     plt.legend()
     plt.grid(True)
