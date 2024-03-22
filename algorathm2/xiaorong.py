@@ -4,14 +4,13 @@ import pandas as pd
 plt.rcParams["font.sans-serif"] = ["SimHei"]  # 设置字体中文乱码问题
 plt.rcParams["axes.unicode_minus"] = False  # 该语句解决图像中的“-”负号的乱码问题
 if __name__ == '__main__':
-
-    precision = np.copy([0.9495, 0.9262, 0.9371, 0.9131])
-    f1_socre = np.copy([0.8571, 0.83531, 0.8422, 0.8223])
+    precision = np.copy([0.9267, 0.9186, 0.9231, 0.8912])
+    f1_socre = np.copy([0.8414, 0.8331, 0.8312, 0.8135])
     recall = np.empty(4)
     for i in range(4):
         recall[i] = format(f1_socre[i] * precision[i] / (2 * precision[i] - f1_socre[i]), '.4f')
     data = [recall, precision, f1_socre]
-    columns = ('完整模型', '去除ISOA模块', '去除GRU模块', '去除阈值模块')
+    columns = ('完整模型', '去除注意力机制', '去除相关性矩阵', '去除集成网络机制')
     rows = ['Recall', 'Precision', 'F1_Score']
     pltPD = pd.DataFrame(data, columns=columns, index=rows)
     # 按照model来进行汇总, 这里共有5个model
@@ -45,6 +44,6 @@ if __name__ == '__main__':
     the_table.scale(1, 2.5)  # may help
     plt.xticks([])
     plt.yticks(fontsize=15)
-    plt.ylim(0.4, 1.2)
+    plt.ylim(0.4, 1.1)
     plt.ylabel("数值", fontsize=18)
     plt.show()

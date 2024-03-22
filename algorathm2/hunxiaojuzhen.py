@@ -18,10 +18,9 @@ if __name__ == '__main__':
     print("total: {} \nprecision: {} \nrecall: {} \nf1_score: {}".format(total, precision, recall, f1_score))
     print("TP: {} \nFP: {} \nTN: {} \nFN: {}".format(TP, FP, TN, FN))
 
-
     #对比实验的数据表的数据
-    f1_score = np.copy([0.8421, 0.8077, 0.8254, 0.8571])
-    precision = np.copy([0.9097, 0.9275, 0.9223, 0.9495])
+    f1_score = np.copy([0.8201, 0.8318, 0.8058, 0.8414])
+    precision = np.copy([0.8727, 0.8988, 0.8476, 0.9267])
     recall = np.empty(4)
     for i in range(4):
         recall[i] = f1_score[i] * precision[i] / (2 * precision[i] - f1_score[i])
@@ -35,6 +34,5 @@ if __name__ == '__main__':
                 yticklabels=['正常', '异常'], annot_kws = {"size": 12})
     plt.xlabel('预测标签', fontsize=13)
     plt.ylabel('真实标签', fontsize=13)
-    plt.title('混淆矩阵', fontsize=13)
     plt.show()
 

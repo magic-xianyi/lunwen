@@ -33,7 +33,7 @@ def score():
     plt.subplot(2, 1, 1)
 
     plt.plot(x, y_attack_interp, 'r', label='异常数据')
-    plt.plot(x, y_normal_interp, label='原始数据')
+    plt.plot(x, y_normal_interp, label='正常数据')
     plt.title('异常得分')
     plt.xlabel('时间索引', fontsize=12)
     plt.ylabel('数值', fontsize=12)

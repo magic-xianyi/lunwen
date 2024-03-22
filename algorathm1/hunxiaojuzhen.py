@@ -32,6 +32,5 @@ if __name__ == '__main__':
                 yticklabels=['正常', '异常'], annot_kws = {"size": 12})
     plt.xlabel('预测标签', fontsize=13)
     plt.ylabel('真实标签', fontsize=13)
-    plt.title('混淆矩阵', fontsize=13)
     plt.show()
 

@@ -23,7 +23,6 @@ if __name__ == '__main__':
     plt.plot(0.156, 0.844, 'ro', markersize=5)  # 'ro'表示红色圆点
     plt.xlabel('假阳率')
     plt.ylabel('真阳率')
-    plt.title('ROC 曲线')
     plt.legend(loc='lower right')
     plt.grid(True)
     plt.show()
