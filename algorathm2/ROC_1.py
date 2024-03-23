@@ -18,11 +18,11 @@ if __name__ == '__main__':
     x_smooth = np.insert(x_smooth, 0, 0)
     y_smooth = np.insert(y_smooth, 0, 0)
     # 绘制原始数据和平滑曲线
-    plt.plot(x_smooth, y_smooth, label='AGAE:AUC=0.901')
+    plt.plot(x_smooth, y_smooth, label='AUC=0.901')
     plt.plot([0, 1], [1, 0], linestyle='dotted', color='r')
     plt.plot(0.156, 0.844, 'ro', markersize=5)  # 'ro'表示红色圆点
-    plt.xlabel('假阳率')
-    plt.ylabel('真阳率')
+    plt.xlabel('假阳率', fontsize=13)
+    plt.ylabel('真阳率', fontsize=13)
     plt.legend(loc='lower right')
     plt.grid(True)
     plt.show()

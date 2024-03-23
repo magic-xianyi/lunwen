@@ -8,7 +8,7 @@ if __name__ == '__main__':
     total = 449919 - 12
     TP = 42946 # 真阳
     precision = 0.9267
-    recall = 0.7704
+    recall = 0.7771
     FP = int(round((1 - precision) * TP / precision))  # 假阴
     FN = int(round((1 - recall) * TP / recall))  # 假阳
     TN = total - TP - FP - FN  # 真阴
