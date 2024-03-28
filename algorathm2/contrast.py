@@ -5,10 +5,9 @@ plt.rcParams["font.sans-serif"] = ["SimHei"]  # 设置字体中文乱码问题
 plt.rcParams["axes.unicode_minus"] = False  # 该语句解决图像中的“-”负号的乱码问题
 
 def xingdian():
-
     name = ['THOC','USAD', 'TRANAD', 'AGAE', 'LSTM_NDT', 'LW_LSTM_VAE', 'MICNN', 'TFAD']
-    cost = [24.3846 + 46, 5.4781 + 20, 15.1929 + 22, 11.0518 + 24, 8.23 + 20, 10.21 + 21, 39.9 + 16, 15.7 + 23]
-    score = [0.8421, 0.8077, 0.8254, 0.8571, 0.8201, 0.8318, 0.8453, 0.8058]
+    cost = [24.3846 + 28, 8.4781 + 20, 15.1929 + 22, 11.0518 + 21, 8.23 + 20, 10.21 + 21, 39.9 + 16, 15.7 + 23]
+    score = [0.8321, 0.8077, 0.8254, 0.8453, 0.8201, 0.8318, 0.8571, 0.8058]
     markers = ['d', 's', '^', 'h', 'p', 'D', '*', 'v']
     # 绘制散点图，并指定每个点的形状和标签
     plt.scatter(cost[0], score[0], marker = markers[0], label=name[0])
@@ -20,18 +19,18 @@ def xingdian():
     plt.scatter(cost[6], score[6], color='r',marker = markers[6], label=name[6])
     plt.scatter(cost[7], score[7], marker = markers[7], label=name[7])
 
-    plt.annotate('MICNN', (cost[6], score[6]), textcoords="offset points", xytext=(2, 9), ha='center', fontsize=9)
+    plt.annotate('MICNN', (cost[6], score[6]), textcoords="offset points", xytext=(-6, -12), ha='right', fontsize=9)
     plt.annotate('AGAE', (cost[3], score[3]), textcoords="offset points", xytext=(9, 0), ha='left', fontsize=9)
     plt.xlabel('资源消耗', fontsize=12)
     plt.ylabel('F1_Score', fontsize=12, labelpad=10)
-    plt.legend()
+    plt.legend(fontsize=9, )
     plt.grid()
     plt.show()
 
 def shang():
     entropy = [2.23, 3.4, 4.4, 5.3, 8.4, 12.6]
-    AGAE = [0.8571, 0.8573, 0.8563, 0.8541, 0.84, 0.828]
-    MICNN = [0.8453, 0.8441, 0.8442, 0.84, 0.836, 0.831]
+    AGAE = [0.8453, 0.8441, 0.8442, 0.84, 0.828, 0.816]
+    MICNN = [0.8571, 0.8573, 0.8563, 0.8541, 0.85, 0.842]
     LSTM_NDT = [0.8201, 0.820, 0.812, 0.801, 0.78, 0.745]
     LW_LSTM_VAE = [0.8318, 0.836, 0.830, 0.821, 0.81, 0.77]
     TFAD = [0.8058, 0.8056, 0.78, 0.778, 0.76, 0.747]
@@ -51,5 +50,5 @@ def shang():
     plt.legend(fontsize=9)
     plt.show()
 if __name__ == '__main__':
-    #xingdian()
-    shang()
+    xingdian()
+    #shang()

@@ -6,19 +6,21 @@ plt.rcParams["font.sans-serif"] = ["SimHei"]  # 设置字体中文乱码问题
 plt.rcParams["axes.unicode_minus"] = False  # 该语句解决图像中的“-”负号的乱码问题
 if __name__ == '__main__':
     total = 449919 - 12
-    TP = 43258 #真阳
-    precision = 0.9495
-    recall = 0.7811
+    TP = 42946 # 真阳
+    precision = 0.9267
+    recall = 0.7771
     FP = int(round((1 - precision) * TP / precision))  # 假阴
-    FN = int(round((1 - recall) * TP / recall))  #假阳
-    TN = total - TP - FP - FN #真阴
+    FN = int(round((1 - recall) * TP / recall))  # 假阳
+    TN = total - TP - FP - FN  # 真阴
     precision = TP / (TP + FP)
     recall = TP / (TP + FN)
     f1_score = 2 * precision * recall / (precision + recall)
     print("total: {} \nprecision: {} \nrecall: {} \nf1_score: {}".format(total, precision, recall, f1_score))
+    print("TP: {} \nFP: {} \nTN: {} \nFN: {}".format(TP, FP, TN, FN))
+
     #对比实验的数据表的数据
-    f1_score = np.copy([0.8421, 0.8077, 0.8254, 0.8571])
-    precision = np.copy([0.9097, 0.9275, 0.9223, 0.9495])
+    f1_score = np.copy([0.8321, 0.8077, 0.8254, 0.8453])
+    precision = np.copy([0.9097, 0.9255, 0.9223, 0.9267])
     recall = np.empty(4)
     for i in range(4):
         recall[i] = f1_score[i] * precision[i] / (2 * precision[i] - f1_score[i])

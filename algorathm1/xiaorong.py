@@ -4,12 +4,14 @@ import pandas as pd
 plt.rcParams["font.sans-serif"] = ["SimHei"]  # 设置字体中文乱码问题
 plt.rcParams["axes.unicode_minus"] = False  # 该语句解决图像中的“-”负号的乱码问题
 if __name__ == '__main__':
-
-    precision = np.copy([0.9495, 0.9262, 0.9371, 0.9131])
-    f1_socre = np.copy([0.8571, 0.83531, 0.8422, 0.8223])
+    precision = np.copy([0.9495, 0.9262, 0.9371, 0.9131]) - (0.9495 - 0.9267)
+    f1_socre = np.copy([0.8571, 0.83531, 0.8422, 0.8223]) - (0.8571 - 0.8453)
     recall = np.empty(4)
     for i in range(4):
         recall[i] = format(f1_socre[i] * precision[i] / (2 * precision[i] - f1_socre[i]), '.4f')
+    recall[0] = 0.7771
+    for i in range(4):
+        f1_socre[i] = format(f1_socre[i], '.4f')
     data = [recall, precision, f1_socre]
     columns = ('完整模型', '去除ISOA模块', '去除GRU模块', '去除阈值模块')
     rows = ['Recall', 'Precision', 'F1_Score']

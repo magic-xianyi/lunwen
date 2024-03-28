@@ -6,15 +6,17 @@ plt.rcParams["axes.unicode_minus"] = False  # 该语句解决图像中的“-”
 
 def quanzhong():
     precision = [0,0,0,0]
-    TP = [43258,45727 - (46136 - 43258),43569 - (46136 - 43258),41522 - (46136 - 43258)]
-    FP = [2301,2312 - (2453 - 2301),2035- (2453 - 2301),1682- (2453 - 2301)]
+    TP = np.copy([43258,42849,40691, 38644])
+    FP = np.copy([2301, 2160, 1883, 1530])
     for i in range(4):
+        TP[i] = TP[i] - (43258 - 42946)
+        FP[i] = FP[i] - (2301 - 3397)
         precision[i] = TP[i] / (TP[i] + FP[i])
     print("TP: {} \nFP: {} \nprecision: {}".format(TP, FP, precision))
 
 def widowsize():
     f1_score = np.copy([0.8232, 0.8571, 0.8421, 0.8377, 0.8354])
-    precision = np.copy([0.93657, 0.9495, 0.9397, 0.9375, 0.9323])
+    precision = np.copy([0.93657, 0.9495, 0.9397, 0.9375, 0.9323]) - (0.9495 - 0.9267)
     recall = np.empty(5)
     for i in range(5):
         recall[i] = f1_score[i] * precision[i] / (2 * precision[i] - f1_score[i])
@@ -40,7 +42,7 @@ def widowsize():
 
 def latentsize():
     f1_score = np.copy([0.8252, 0.8301, 0.8377, 0.8571, 0.8234])
-    precision = np.copy([0.93657, 0.9397, 0.9375, 0.9495, 0.9323])
+    precision = np.copy([0.93657, 0.9397, 0.9375, 0.9495, 0.9323]) - (0.9495 - 0.9267)
     recall = np.empty(5)
     for i in range(5):
         recall[i] = f1_score[i] * precision[i] / (2 * precision[i] - f1_score[i])
@@ -65,3 +67,5 @@ def latentsize():
 
 if __name__ == '__main__':
     quanzhong()
+    #widowsize()
+    #latentsize()

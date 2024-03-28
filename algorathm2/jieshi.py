@@ -82,30 +82,18 @@ def relitu():
     plt.show()
 
 def js():
-    import matplotlib.pyplot as plt
-    import numpy as np
-    import pandas as pd
-    # 读取CSV文件
-    file_path = 'D:\\DataContainer\\NutCloud\\实验图\\算法2\\attack.csv'  # 将'your_file.csv'替换为您的CSV文件路径
-    data = pd.read_csv(file_path)
-    # 将每一列转换为数组
-    column_names = []
-    for column_name in data.columns:
-        column_array = data[column_name].values
-        # 最大最小归一化
-        min_val = np.min(column_array)
-        max_val = np.max(column_array)
-        if max_val != min_val and column_name not in ['AIT501', 'AIT502', 'FIT401', 'P302', 'DPIT301']:
-            column_names.append(column_name)
 
     array = [0.11124759,0.11364279,0.12270737,0.15650916,0.20075947,0.20360334,0.21504774,0.25263647,0.25791212,0.27685827,0.37277895,0.49083194,0.49209234,0.53796822,0.57327349,0.61326266,0.61659177,0.62900208,0.63531454,0.64469796,0.80753367,0.8128935,0.81544938,1.09946343,1.13404915,1.14177373,1.17016933,1.27850315,1.3983461,1.41858352,1.59752099,1.66324124]
     name = ['FIT101', 'AIT203', 'P203', 'P205', 'P101', 'MV201', 'FIT301', 'P602', 'P402', 'MV304', 'FIT201', 'FIT502',
      'MV302', 'LIT301', 'MV303', 'AIT401', 'LIT101', 'AIT202', 'AIT503', 'MV301', 'LIT401', 'AIT201', 'FIT601',
      'AIT504', 'AIT402', 'FIT501', 'FIT503', 'PIT503', 'PIT501', 'PIT502', 'P501', 'UV401']
 
+    for i in range(len(array)):
+        array[i] = round(array[i], 4)
     # 打印排序后的结果
     print("排序后的值数组：", array)
     print("对应的名字数组：", name)
+
     # 绘制横向柱状图
     plt.barh(name, array)
     # 添加数值标签
@@ -121,5 +109,5 @@ def js():
 
 if __name__ == '__main__':
     #relitu()
-    score()
-    #js()
+    #score()
+    js()
