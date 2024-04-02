@@ -76,5 +76,58 @@ def draw_histogram_line():
     plt.show()
 
 if __name__ == '__main__':
-    draw_histogram_line()
-    drawLine()
+    x1, y1 = parse_data(data1)
+    x2, y2 = parse_data(data2)
+
+    # 进行样条插值
+    cs1 = CubicSpline(x1, y1)
+    cs2 = CubicSpline(x2, y2)
+
+    # 生成平滑曲线上的点
+    smooth_x1 = np.linspace(min(x1), max(x1), 100)
+    smooth_y1 = cs1(smooth_x1)
+    smooth_x2 = np.linspace(min(x2), max(x2), 100)
+    smooth_y2 = cs2(smooth_x2)
+    # 绘制原始信号、逆变换结果和频谱图
+    plt.figure(figsize=(12, 6))
+    # 创建画布和子图
+    plt.subplot(1, 2, 2)
+    # 绘制平滑曲线图，设置为虚线
+    plt.plot(smooth_x1, smooth_y1, label='原始SOA', linestyle='--', dashes=(1, 1))
+    plt.plot(smooth_x2, smooth_y2, label='改进SOA', linestyle='--')
+    plt.xlabel('迭代轮次', fontsize=14)
+    plt.ylabel('适应度函数值', fontsize=14)
+    plt.title('平均收敛曲线', fontsize=14)
+    plt.legend(fontsize=12)
+    # 设置横坐标范围从0开始
+    plt.xlim(0, max(max(x1), max(x2)))
+    plt.grid(True, linestyle='--')  # 网格线
+    plt.text(0.5, -0.16, '(b)', ha='center', va='center', transform=plt.gca().transAxes, fontsize=16)
+    plt.subplot(1, 2, 1)
+    # 提供的数据
+    labels = ['最优值差', '均值差', '标准差', '运行时间']
+    data1 = [0.5, 0.9, 1.2, 0.61]
+    data2 = [0.03, 0.2, 0.6, 0.655]
+    # 设置柱状图的宽度
+    bar_width = 0.2
+    # 设置横坐标的位置
+    bar_positions1 = range(len(labels))
+    bar_positions2 = [pos + bar_width for pos in bar_positions1]
+    # 绘制柱状图
+    plt.bar(bar_positions1, data1, width=bar_width, label='原始SOA')
+    plt.bar(bar_positions2, data2, width=bar_width, label='改进SOA')
+    # 添加标签和标题
+    plt.xlabel('指标', fontsize=14)
+    plt.ylabel('数值', fontsize=14)
+    plt.title('寻优结果', fontsize=14)
+    # 设置横坐标刻度及标签
+    plt.xticks([pos + bar_width / 2 for pos in bar_positions1], labels, fontsize=12)
+    # 添加图例
+    plt.legend(fontsize=12)
+    plt.text(0.5, -0.16, '(a)', ha='center', va='center', transform=plt.gca().transAxes, fontsize=16)
+    # 调整布局
+    plt.tight_layout()
+    # 显示柱状图
+    plt.show()
+    # 调整布局
+    plt.tight_layout()
