@@ -50,3 +50,7 @@ if __name__ == '__main__':
     plt.ylim(0.4, 1.2)
     plt.ylabel("数值", fontsize=18)
     plt.show()
+    from matplotlib.backends.backend_svg import FigureCanvasSVG
+    canvas = FigureCanvasSVG(fig)
+    # 将绘图输出为SVG格式
+    canvas.print_svg('D:\\桌面\\svg\\算法1\\消融实验.svg')

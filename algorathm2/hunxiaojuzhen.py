@@ -30,9 +30,14 @@ if __name__ == '__main__':
     confusion_matrix = np.array([[TN, FP],
                                  [FN, TP]])
     # 使用seaborn绘制混淆矩阵热图
+    fig = plt.figure()
     sns.heatmap(confusion_matrix, annot=True, fmt='d', cmap='Blues', xticklabels=['正常', '异常'],
                 yticklabels=['正常', '异常'], annot_kws = {"size": 12})
     plt.xlabel('预测标签', fontsize=13)
     plt.ylabel('真实标签', fontsize=13)
-   # plt.show()
+    plt.show()
+    from matplotlib.backends.backend_svg import FigureCanvasSVG
+    canvas = FigureCanvasSVG(fig)
+    # 将绘图输出为SVG格式
+    canvas.print_svg('D:\\桌面\\svg\\算法2\\混淆矩阵.svg')
 

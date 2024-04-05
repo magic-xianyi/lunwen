@@ -8,6 +8,7 @@ x = np.arange(1, 3001)
 
 
 def drawPIT503():
+    fig = plt.figure()
     y3 = np.copy(y_AIT504)
     y3 = y3 / 1000000
     plt.plot(np.arange(0, len(y3)), y3, 'mediumseagreen', label='原始数据')
@@ -15,6 +16,10 @@ def drawPIT503():
     plt.ylabel('数值', fontsize=11)
     plt.title('传感器PIT504数据', fontsize=12)
     plt.show()
+    from matplotlib.backends.backend_svg import FigureCanvasSVG
+    canvas = FigureCanvasSVG(fig)
+    # 将绘图输出为SVG格式
+    canvas.print_svg('D:\\桌面\\svg\\算法2\\传感器数值.svg')
 
 
 if __name__ == '__main__':

@@ -17,6 +17,7 @@ if __name__ == '__main__':
     x_smooth = np.insert(x_smooth, 0, 0)
     y_smooth = np.insert(y_smooth, 0, 0)
     # 绘制原始数据和平滑曲线
+    fig = plt.figure()
     plt.plot(x_smooth, y_smooth, label='AUC=0.9122')
     plt.plot([0, 1], [1, 0], linestyle='dotted', color='r')
     plt.plot(0.156, 0.844, 'ro', markersize=5)  # 'ro'表示红色圆点
@@ -25,3 +26,7 @@ if __name__ == '__main__':
     plt.legend(loc='lower right')
     plt.grid(True)
     plt.show()
+    from matplotlib.backends.backend_svg import FigureCanvasSVG
+    canvas = FigureCanvasSVG(fig)
+    # 将绘图输出为SVG格式
+    canvas.print_svg('D:\\桌面\\svg\\算法2\\ROC.svg')

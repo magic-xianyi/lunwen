@@ -1,9 +1,11 @@
 import matplotlib.pyplot as plt
 import numpy as np
-
+from matplotlib.backends.backend_svg import FigureCanvasSVG
 
 #文献量
 def draw_histogram_line():
+    # 创建一个图像
+    fig = plt.figure()
     plt.rcParams['font.sans-serif'] = ['SimHei']
     plt.rcParams['axes.unicode_minus'] = False
     # 创建数据
@@ -16,8 +18,7 @@ def draw_histogram_line():
     plt.bar(x, y1, label='文献数量')
     plt.xlabel('年份', fontsize=13)  # 横轴标签
     plt.ylabel('文献数量', fontsize=13)  # 纵轴标签
-    # 绘制折线
-    plt.plot(x2, y2, 'r-', linewidth=10, label='line')
+
     # # 添加标签
     # for a, b in zip(x, y1):
     #     plt.text(a, b + 0.5, '%d' % b, ha='center', va='bottom')
@@ -29,6 +30,11 @@ def draw_histogram_line():
     # plt.legend()
     # 显示图形
     plt.show()
+    # 创建SVG绘图对象
+    canvas = FigureCanvasSVG(fig)
+
+    # 将绘图输出为SVG格式
+    canvas.print_svg('example.svg')
 
 if __name__ == '__main__':
     draw_histogram_line()

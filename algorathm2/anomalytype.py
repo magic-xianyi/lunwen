@@ -19,16 +19,16 @@ if __name__ == '__main__':
     axes[0].plot(list(range(len(y1))), y1, label='整体数据变化')
     axes[0].set_title('数据点跃变异常')
     axes[0].set_xlabel('时间')
-    axes[0].set_ylabel('值')
-    axes[0].legend(fontsize=7)
+    axes[0].set_ylabel('数值')
+    axes[0].legend(fontsize=8)
     axes[0].set_xticks(list(range(len(y1))))
 
     # 第二个子图
     axes[1].plot(y2, label='整体数据变化')
     axes[1].set_title('数据变化模式异常')
     axes[1].set_xlabel('时间')
-    axes[1].set_ylabel('值')
-    axes[1].legend(fontsize=7)
+    axes[1].set_ylabel('数值')
+    axes[1].legend(fontsize=8)
     axes[1].set_xticks(list(range(len(y2))))
 
     # 第三个子图
@@ -37,10 +37,14 @@ if __name__ == '__main__':
     axes[2].plot(y5, label='维度2实际值')
     axes[2].set_title('维度关系异常')
     axes[2].set_xlabel('时间')
-    axes[2].set_ylabel('值')
+    axes[2].set_ylabel('数值')
     axes[2].set_xticks(list(range(len(y3))))
-    axes[2].legend(fontsize=7)
+    axes[2].legend(fontsize=9)
     # 调整子图之间的间距
     plt.tight_layout()
     # 显示图形
     plt.show()
+    from matplotlib.backends.backend_svg import FigureCanvasSVG
+    canvas = FigureCanvasSVG(fig)
+    # 将绘图输出为SVG格式
+    canvas.print_svg('D:\\桌面\\svg\\算法2\\异常类型.svg')

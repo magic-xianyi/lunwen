@@ -15,6 +15,9 @@ def quanzhong():
     print("TP: {} \nFP: {} \nprecision: {}".format(TP, FP, precision))
 
 def widowsize():
+    from matplotlib.backends.backend_svg import FigureCanvasSVG
+    fig = plt.figure()
+
     f1_score = np.copy([0.8232, 0.8571, 0.8421, 0.8377, 0.8354])
     precision = np.copy([0.93657, 0.9495, 0.9397, 0.9375, 0.9323]) - (0.9495 - 0.9267)
     recall = np.empty(5)
@@ -39,6 +42,9 @@ def widowsize():
     plt.legend(fontsize=9)
     plt.ylim(0.6, 1.1)
     plt.show()
+    canvas = FigureCanvasSVG(fig)
+    # 将绘图输出为SVG格式
+    canvas.print_svg('D:\\桌面\\svg\\算法1\\窗口.svg')
 
 def latentsize():
     f1_score = np.copy([0.8252, 0.8301, 0.8377, 0.8571, 0.8234])
@@ -54,6 +60,9 @@ def latentsize():
     p = x
     # auc的起始位置
     r = x + width  # [5 + width, 12 + width, 20 + width, 30 + width, 50 + width]
+    from matplotlib.backends.backend_svg import FigureCanvasSVG
+    fig = plt.figure()
+
     plt.bar(p, precision, width=width, color='powderblue', label='Precision')
     # 银牌图形
     plt.plot(x + width / 2, f1_score, 'orange', marker='*', linewidth=1, label='F1_Score')
@@ -64,8 +73,11 @@ def latentsize():
     plt.legend(fontsize=9)
     plt.ylim(0.6, 1.1)
     plt.show()
+    canvas = FigureCanvasSVG(fig)
+    # 将绘图输出为SVG格式
+    canvas.print_svg('D:\\桌面\\svg\\算法1\\潜空间数据.svg')
 
 if __name__ == '__main__':
-    quanzhong()
-    #widowsize()
-    #latentsize()
+    #quanzhong()
+    widowsize()
+    latentsize()

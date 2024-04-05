@@ -1,6 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 from sklearn.metrics import confusion_matrix
+from matplotlib.backends.backend_svg import FigureCanvasSVG
 import seaborn as sns
 plt.rcParams["font.sans-serif"] = ["SimHei"]  # 设置字体中文乱码问题
 plt.rcParams["axes.unicode_minus"] = False  # 该语句解决图像中的“-”负号的乱码问题
@@ -29,10 +30,15 @@ if __name__ == '__main__':
     # 创建混淆矩阵
     confusion_matrix = np.array([[TN, FP],
                                  [FN, TP]])
+    # 创建一个图像
+    fig = plt.figure()
     # 使用seaborn绘制混淆矩阵热图
     sns.heatmap(confusion_matrix, annot=True, fmt='d', cmap='Blues', xticklabels=['正常', '异常'],
                 yticklabels=['正常', '异常'], annot_kws = {"size": 12})
     plt.xlabel('预测标签', fontsize=13)
     plt.ylabel('真实标签', fontsize=13)
     plt.show()
+    canvas = FigureCanvasSVG(fig)
+    # 将绘图输出为SVG格式
+    canvas.print_svg('D:\\桌面\\svg\\算法1\\混淆矩阵.svg')
 

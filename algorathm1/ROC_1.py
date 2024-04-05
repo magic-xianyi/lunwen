@@ -18,6 +18,8 @@ if __name__ == '__main__':
     y_trannd = [0, 0.73, 0.77,0.78, 0.81, 0.83, 0.86, 0.89, 0.90,0.91, 0.93, 0.95, 0.97,1]
 
     # 绘制原始数据和平滑曲线
+    from matplotlib.backends.backend_svg import FigureCanvasSVG
+    fig = plt.figure()
 
     plt.plot(x_thoc, y_thoc,'pink', label='THOC:AUC=0.8948')
     plt.plot(x_USAD, y_USAD, 'mediumseagreen', label='USAD:AUC=0.8315')
@@ -30,3 +32,6 @@ if __name__ == '__main__':
     plt.legend()
     plt.grid(True)
     plt.show()
+    canvas = FigureCanvasSVG(fig)
+    # 将绘图输出为SVG格式
+    canvas.print_svg('D:\\桌面\\svg\\算法1\\ROC.svg')

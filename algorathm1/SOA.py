@@ -76,6 +76,7 @@ def draw_histogram_line():
     plt.show()
 
 if __name__ == '__main__':
+
     x1, y1 = parse_data(data1)
     x2, y2 = parse_data(data2)
 
@@ -89,7 +90,7 @@ if __name__ == '__main__':
     smooth_x2 = np.linspace(min(x2), max(x2), 100)
     smooth_y2 = cs2(smooth_x2)
     # 绘制原始信号、逆变换结果和频谱图
-    plt.figure(figsize=(12, 6))
+    fig = plt.figure(figsize=(12, 6))
     # 创建画布和子图
     plt.subplot(1, 2, 2)
     # 绘制平滑曲线图，设置为虚线
@@ -131,3 +132,7 @@ if __name__ == '__main__':
     plt.show()
     # 调整布局
     plt.tight_layout()
+    from matplotlib.backends.backend_svg import FigureCanvasSVG
+    canvas = FigureCanvasSVG(fig)
+    # 将绘图输出为SVG格式
+    canvas.print_svg('D:\\桌面\\svg\\算法1\\SOA.svg')

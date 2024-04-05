@@ -5,10 +5,11 @@ plt.rcParams["font.sans-serif"] = ["SimHei"]  # 设置字体中文乱码问题
 plt.rcParams["axes.unicode_minus"] = False  # 该语句解决图像中的“-”负号的乱码问题
 
 def xingdian():
-    name = ['THOC','USAD', 'TRANAD', 'AGAE', 'LSTM_NDT', 'LW_LSTM_VAE', 'MICNN', 'TFAD']
+    name = ['THOC','USAD', 'TranAD', 'AGAE', 'LSTM_NDT', 'LW_LSTM_VAE', 'MICNN', 'TFAD']
     cost = [24.3846 + 28, 8.4781 + 20, 15.1929 + 22, 11.0518 + 21, 8.23 + 20, 10.21 + 21, 39.9 + 16, 15.7 + 23]
     score = [0.8321, 0.8077, 0.8254, 0.8453, 0.8201, 0.8318, 0.8571, 0.8058]
     markers = ['d', 's', '^', 'h', 'p', 'D', '*', 'v']
+    fig = plt.figure()
     # 绘制散点图，并指定每个点的形状和标签
     plt.scatter(cost[0], score[0], marker = markers[0], label=name[0])
     plt.scatter(cost[1], score[1], marker = markers[1], label=name[1])
@@ -26,6 +27,10 @@ def xingdian():
     plt.legend(fontsize=9, )
     plt.grid()
     plt.show()
+    from matplotlib.backends.backend_svg import FigureCanvasSVG
+    canvas = FigureCanvasSVG(fig)
+    # 将绘图输出为SVG格式
+    canvas.print_svg('D:\\桌面\\svg\\算法2\\星点图.svg')
 
 def shang():
     entropy = [2.23, 3.4, 4.4, 5.3, 8.4, 12.6]
@@ -37,6 +42,7 @@ def shang():
     TranAD = [0.8254, 0.825, 0.82, 0.8, 0.77, 0.752]
     THOC = [0.8421, 0.8422, 0.8321, 0.8351, 0.82, 0.8]
     USAD = [0.8077, 0.8, 0.78, 0.77, 0.73, 0.71]
+    fig = plt.figure()
     plt.plot(entropy, AGAE, marker='*', linewidth=1, label='AGAE')
     plt.plot(entropy, MICNN, marker='x', linewidth=1, label='MICNN')
     plt.plot(entropy, LSTM_NDT, marker='o', markersize=5, linewidth=1, label='LSTM_NDT')
@@ -49,6 +55,10 @@ def shang():
     plt.ylabel('F1_Score', fontsize=12, labelpad=10)
     plt.legend(fontsize=9)
     plt.show()
+    from matplotlib.backends.backend_svg import FigureCanvasSVG
+    canvas = FigureCanvasSVG(fig)
+    # 将绘图输出为SVG格式
+    canvas.print_svg('D:\\桌面\\svg\\算法2\\熵比较.svg')
 if __name__ == '__main__':
     xingdian()
-    #shang()
+    shang()

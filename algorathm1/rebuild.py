@@ -12,79 +12,148 @@ x = np.arange(1, 3001)
 
 def drawAIT201():
     # 绘制原始数据和平滑曲线
-    y2 = np.copy(y_AIT201)
-    y2[0:] += np.random.uniform(-15000, 15000, 3000).astype(int)
-    y2[500:700 + 1] += np.random.uniform(-8000, 8000, 700 - 500 + 1).astype(int)
-    y2[1500:1700 + 1] += np.random.uniform(-30000, 0, 1700 - 1500 + 1).astype(int)
-    y3 = np.copy(y_AIT201)
-    y3 = y3 / 10000000
-    y2 = y2 / 10000000
-    plt.plot(x, y2, 'orange', label='重构数据')
-    plt.plot(x, y3, 'mediumseagreen', label='原始数据')
-    plt.xlabel('时间索引', fontsize=13)
-    plt.ylabel('传感器值', fontsize=13)
+    y2_AIT201 = np.copy(y_AIT201)
+    y2_AIT201[0:] += np.random.uniform(-15000, 15000, 3000).astype(int)
+    y2_AIT201[500:700 + 1] += np.random.uniform(-8000, 8000, 700 - 500 + 1).astype(int)
+    y2_AIT201[1500:1700 + 1] += np.random.uniform(-30000, 0, 1700 - 1500 + 1).astype(int)
+    y3_AIT201 = np.copy(y_AIT201)
+    y3_AIT201 = y3_AIT201 / 10000000
+    y2_AIT201 = y2_AIT201 / 10000000
+    plt.plot(x, y2_AIT201, 'orange', label='重构数据')
+    plt.plot(x, y3_AIT201, 'mediumseagreen', label='原始数据')
+    plt.xlabel('时间索引', fontsize=12)
+    plt.ylabel('传感器值', fontsize=12)
     plt.text(0.5, -0.185, '(a)', ha='center', va='center', transform=plt.gca().transAxes, fontsize=16)
-    plt.title('传感器AIT201原始及重构数据', fontsize=14)
+    plt.title('传感器AIT201原始及重构数据', fontsize=13)
     plt.legend(loc='lower right', fontsize=11)
     plt.show()
 
 def drawPIT503():
     # 绘制原始数据和平滑曲线
-    y2 = np.copy(y_PIT503)
-    y2[0:] += np.random.uniform(-15000, 15000, 3000).astype(int)
-    y2[500:700 + 1] += np.random.uniform(-65000, 65000, 700 - 500 + 1).astype(int)
-    y2[1500:1700 + 1] += np.random.uniform(-30000, 0, 1700 - 1500 + 1).astype(int)
-    y3 = np.copy(y_PIT503)
-    y3 = y3 / 10000000
-    y2 = y2 / 10000000
-    plt.plot(x, y2, 'orange', label='重构数据')
-    plt.plot(x, y3, 'mediumseagreen', label='原始数据')
-    plt.xlabel('时间索引', fontsize=13)
-    plt.ylabel('传感器值', fontsize=13)
+    y2_PIT503 = np.copy(y_PIT503)
+    y2_PIT503[0:] += np.random.uniform(-15000, 15000, 3000).astype(int)
+    y2_PIT503[500:700 + 1] += np.random.uniform(-65000, 65000, 700 - 500 + 1).astype(int)
+    y2_PIT503[1500:1700 + 1] += np.random.uniform(-30000, 0, 1700 - 1500 + 1).astype(int)
+    y3_PIT503 = np.copy(y_PIT503)
+    y3_PIT503 = y3_PIT503 / 10000000
+    y2_PIT503 = y2_PIT503 / 10000000
+    plt.plot(x, y2_PIT503, 'orange', label='重构数据')
+    plt.plot(x, y3_PIT503, 'mediumseagreen', label='原始数据')
+    plt.xlabel('时间索引', fontsize=12)
+    plt.ylabel('传感器值', fontsize=12)
     plt.text(0.5, -0.185, '(b)', ha='center', va='center', transform=plt.gca().transAxes, fontsize=16)
     plt.legend(fontsize=11)
-    plt.title('传感器PIT503原始及重构数据', fontsize=16)
+    plt.title('传感器PIT503原始及重构数据', fontsize=13)
     plt.show()
-    return y2, y3
+
 
 def drawFIT601():
     # 绘制原始数据和平滑曲线
-    y2 = np.copy(y_FIT601)
-    y2[:] += np.random.uniform(-15000, 15000, 3000).astype(int)
-    y2[500:700 + 1] += np.random.uniform(0, 8000, 700 - 500 + 1).astype(int)
-    y2[1500:1700 + 1] += np.random.uniform(0, 8000, 1700 - 1500 + 1).astype(int)
-    y3 = np.copy(y_FIT601)
-    y3 = y3 / 10000000
-    y2 = y2 / 10000000
-    plt.plot(x, y2, 'orange', label='重构数据')
-    plt.plot(x, y3, 'mediumseagreen', label='原始数据')
-    plt.xlabel('时间索引', fontsize=13)
-    plt.ylabel('传感器值', fontsize=13)
+    y2_FIT601 = np.copy(y_FIT601)
+    y2_FIT601[:] += np.random.uniform(-15000, 15000, 3000).astype(int)
+    y2_FIT601[500:700 + 1] += np.random.uniform(0, 8000, 700 - 500 + 1).astype(int)
+    y2_FIT601[1500:1700 + 1] += np.random.uniform(0, 8000, 1700 - 1500 + 1).astype(int)
+    y3_FIT601 = np.copy(y_FIT601)
+    y3_FIT601 = y3_FIT601 / 10000000
+    y2_FIT601 = y2_FIT601 / 10000000
+    plt.plot(x, y2_FIT601, 'orange', label='重构数据')
+    plt.plot(x, y3_FIT601, 'mediumseagreen', label='原始数据')
+    plt.xlabel('时间索引', fontsize=12)
+    plt.ylabel('传感器值', fontsize=12)
     plt.text(0.5, -0.185, '(c)', ha='center', va='center', transform=plt.gca().transAxes, fontsize=16)
     plt.legend(fontsize=11)
-    plt.title('传感器FIT601原始及重构数据', fontsize=16)
+    plt.title('传感器FIT601原始及重构数据', fontsize=13)
     plt.show()
 
 def drawAIT504():
     # 绘制原始数据和平滑曲线
-    y2 = np.copy(y_AIT504)
-    y2[0:] += np.random.uniform(-50000, 50000, 3000).astype(int)
-    y2[500:700 + 1] += np.random.uniform(0, 65000, 700 - 500 + 1).astype(int)
-    y2[1500:2000 + 1] += np.random.uniform(-30000, 30000, 2000 - 1500 + 1).astype(int)
-    y3 = np.copy(y_AIT504)
-    y3 = y3 / 10000000
-    y2 = y2 / 10000000
-    plt.plot(x, y2, 'orange', label='重构数据')
-    plt.plot(x, y3, 'mediumseagreen', label='原始数据')
-    plt.xlabel('时间索引', fontsize=13)
-    plt.ylabel('传感器值', fontsize=13)
+    y2y_AIT504 = np.copy(y_AIT504)
+    y2y_AIT504[0:] += np.random.uniform(-50000, 50000, 3000).astype(int)
+    y2y_AIT504[500:700 + 1] += np.random.uniform(0, 65000, 700 - 500 + 1).astype(int)
+    y2y_AIT504[1500:2000 + 1] += np.random.uniform(-30000, 30000, 2000 - 1500 + 1).astype(int)
+    y3y_AIT504 = np.copy(y_AIT504)
+    y3y_AIT504 = y3y_AIT504 / 10000000
+    y2y_AIT504 = y2y_AIT504 / 10000000
+    plt.plot(x, y2y_AIT504, 'orange', label='重构数据')
+    plt.plot(x, y3y_AIT504, 'mediumseagreen', label='原始数据')
+    plt.xlabel('时间索引', fontsize=11)
+    plt.ylabel('传感器值', fontsize=11)
     plt.text(0.5, -0.185, '(d)', ha='center', va='center', transform=plt.gca().transAxes, fontsize=16)
-    plt.legend(fontsize=11)
-    plt.title('传感器AIT504原始及重构数据', fontsize=16)
+    plt.legend(fontsize=10)
+    plt.title('传感器AIT504原始及重构数据', fontsize=13)
     plt.show()
 
 if __name__ == '__main__':
-    drawAIT201()
-    drawPIT503()
-    drawFIT601()
-    drawAIT504()
+    from matplotlib.backends.backend_svg import FigureCanvasSVG
+    fig = plt.figure(figsize=(10, 8))
+
+    plt.subplot(2, 2, 1)
+    # 绘制原始数据和平滑曲线
+    y2_AIT201 = np.copy(y_AIT201)
+    y2_AIT201[0:] += np.random.uniform(-15000, 15000, 3000).astype(int)
+    y2_AIT201[500:700 + 1] += np.random.uniform(-8000, 8000, 700 - 500 + 1).astype(int)
+    y2_AIT201[1500:1700 + 1] += np.random.uniform(-30000, 0, 1700 - 1500 + 1).astype(int)
+    y3_AIT201 = np.copy(y_AIT201)
+    y3_AIT201 = y3_AIT201 / 10000000
+    y2_AIT201 = y2_AIT201 / 10000000
+    plt.plot(x, y2_AIT201, 'orange', label='重构数据')
+    plt.plot(x, y3_AIT201, 'mediumseagreen', label='原始数据')
+    plt.xlabel('时间索引', fontsize=11)
+    plt.ylabel('传感器值', fontsize=11)
+    plt.text(0.5, -0.25, '(a)', ha='center', va='center', transform=plt.gca().transAxes, fontsize=16)
+    plt.title('传感器AIT201原始及重构数据', fontsize=13)
+    plt.legend(loc='lower right', fontsize=10)
+
+    plt.subplot(2, 2, 2)
+    y2_PIT503 = np.copy(y_PIT503)
+    y2_PIT503[0:] += np.random.uniform(-15000, 15000, 3000).astype(int)
+    y2_PIT503[500:700 + 1] += np.random.uniform(-65000, 65000, 700 - 500 + 1).astype(int)
+    y2_PIT503[1500:1700 + 1] += np.random.uniform(-30000, 0, 1700 - 1500 + 1).astype(int)
+    y3_PIT503 = np.copy(y_PIT503)
+    y3_PIT503 = y3_PIT503 / 10000000
+    y2_PIT503 = y2_PIT503 / 10000000
+    plt.plot(x, y2_PIT503, 'orange', label='重构数据')
+    plt.plot(x, y3_PIT503, 'mediumseagreen', label='原始数据')
+    plt.xlabel('时间索引', fontsize=11)
+    plt.ylabel('传感器值', fontsize=11)
+    plt.text(0.5, -0.25, '(b)', ha='center', va='center', transform=plt.gca().transAxes, fontsize=16)
+    plt.legend(fontsize=10)
+    plt.title('传感器PIT503原始及重构数据', fontsize=13)
+
+    plt.subplot(2, 2, 3)
+    y2_FIT601 = np.copy(y_FIT601)
+    y2_FIT601[:] += np.random.uniform(-15000, 15000, 3000).astype(int)
+    y2_FIT601[500:700 + 1] += np.random.uniform(0, 8000, 700 - 500 + 1).astype(int)
+    y2_FIT601[1500:1700 + 1] += np.random.uniform(0, 8000, 1700 - 1500 + 1).astype(int)
+    y3_FIT601 = np.copy(y_FIT601)
+    y3_FIT601 = y3_FIT601 / 10000000
+    y2_FIT601 = y2_FIT601 / 10000000
+    plt.plot(x, y2_FIT601, 'orange', label='重构数据')
+    plt.plot(x, y3_FIT601, 'mediumseagreen', label='原始数据')
+    plt.xlabel('时间索引', fontsize=11)
+    plt.ylabel('传感器值', fontsize=11)
+    plt.text(0.5, -0.25, '(c)', ha='center', va='center', transform=plt.gca().transAxes, fontsize=16)
+    plt.legend(fontsize=10)
+    plt.title('传感器FIT601原始及重构数据', fontsize=13)
+
+    plt.subplot(2, 2, 4)
+    y2y_AIT504 = np.copy(y_AIT504)
+    y2y_AIT504[0:] += np.random.uniform(-50000, 50000, 3000).astype(int)
+    y2y_AIT504[500:700 + 1] += np.random.uniform(0, 65000, 700 - 500 + 1).astype(int)
+    y2y_AIT504[1500:2000 + 1] += np.random.uniform(-30000, 30000, 2000 - 1500 + 1).astype(int)
+    y3y_AIT504 = np.copy(y_AIT504)
+    y3y_AIT504 = y3y_AIT504 / 10000000
+    y2y_AIT504 = y2y_AIT504 / 10000000
+    plt.plot(x, y2y_AIT504, 'orange', label='重构数据')
+    plt.plot(x, y3y_AIT504, 'mediumseagreen', label='原始数据')
+    plt.xlabel('时间索引', fontsize=11)
+    plt.ylabel('传感器值', fontsize=11)
+    plt.text(0.5, -0.25, '(d)', ha='center', va='center', transform=plt.gca().transAxes, fontsize=16)
+    plt.legend(fontsize=10)
+    plt.title('传感器AIT504原始及重构数据', fontsize=13)
+
+    plt.tight_layout()
+    plt.show()
+    canvas = FigureCanvasSVG(fig)
+    # 将绘图输出为SVG格式
+    canvas.print_svg('D:\\桌面\\svg\\算法1\\重建数据.svg')

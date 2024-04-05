@@ -30,7 +30,7 @@ if __name__ == '__main__':
     complex_array4 = a4 * np.exp(1j * phase)
 
     # 绘制原始信号、逆变换结果和频谱图
-    plt.figure(figsize=(8, 6))
+    fig = plt.figure(figsize=(8, 6))
 
     plt.subplot(4, 1, 1)
     plt.plot(x, np.real(np.fft.ifft(complex_array1)), 'r', label='生成数据')  # 使用np.real提取实部
@@ -71,3 +71,7 @@ if __name__ == '__main__':
 
     plt.tight_layout()
     plt.show()
+    from matplotlib.backends.backend_svg import FigureCanvasSVG
+    canvas = FigureCanvasSVG(fig)
+    # 将绘图输出为SVG格式
+    canvas.print_svg('D:\\桌面\\svg\\算法2\\傅里叶.svg')

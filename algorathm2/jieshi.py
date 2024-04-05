@@ -28,7 +28,7 @@ def score():
     data_normal_interp = f_data_normal(x_new)
     x = [i + 1000 for i in range(len(y_normal_interp))]
 
-    plt.figure(figsize=(8, 6))
+    fig = plt.figure(figsize=(8, 6))
 
     plt.subplot(2, 1, 1)
 
@@ -48,8 +48,11 @@ def score():
     plt.legend(fontsize='9')
     plt.text(0.5, -0.35, '(b)', ha='center', va='center', transform=plt.gca().transAxes, fontsize=16)
     plt.tight_layout()
-
     plt.show()
+    from matplotlib.backends.backend_svg import FigureCanvasSVG
+    canvas = FigureCanvasSVG(fig)
+    # 将绘图输出为SVG格式
+    canvas.print_svg('D:\\桌面\\svg\\算法2\\异常得分.svg')
 
 def relitu():
     import matplotlib.pyplot as plt
@@ -73,6 +76,7 @@ def relitu():
             column_names.append(column_name)
     # 绘制热力图
     print(len(column_names))
+    fig = plt.figure()
     plt.imshow(column_arrays, cmap='Blues', aspect=80,interpolation='nearest')
     plt.colorbar()  # 添加颜色条
     # 设置纵坐标刻度标签为每列的名称
@@ -80,7 +84,10 @@ def relitu():
     plt.xlabel('时间索引', fontsize=12)
     plt.ylabel('传感器名字', fontsize=12)
     plt.show()
-
+    from matplotlib.backends.backend_svg import FigureCanvasSVG
+    canvas = FigureCanvasSVG(fig)
+    # 将绘图输出为SVG格式
+    canvas.print_svg('D:\\桌面\\svg\\算法2\\热力图.svg')
 def js():
 
     array = [0.11124759,0.11364279,0.12270737,0.15650916,0.20075947,0.20360334,0.21504774,0.25263647,0.25791212,0.27685827,0.37277895,0.49083194,0.49209234,0.53796822,0.57327349,0.61326266,0.61659177,0.62900208,0.63531454,0.64469796,0.80753367,0.8128935,0.81544938,1.09946343,1.13404915,1.14177373,1.17016933,1.27850315,1.3983461,1.41858352,1.59752099,1.66324124]
@@ -93,7 +100,7 @@ def js():
     # 打印排序后的结果
     print("排序后的值数组：", array)
     print("对应的名字数组：", name)
-
+    fig = plt.figure()
     # 绘制横向柱状图
     plt.barh(name, array)
     # 添加数值标签
@@ -105,9 +112,13 @@ def js():
     plt.ylim(-0.6, len(name))
     plt.xlim(0, 1.9)
     plt.yticks(fontsize=9, fontfamily='Arial')
+    from matplotlib.backends.backend_svg import FigureCanvasSVG
+    canvas = FigureCanvasSVG(fig)
+    # 将绘图输出为SVG格式
+    canvas.print_svg('D:\\桌面\\svg\\算法2\\解释.svg')
     plt.show()
 
 if __name__ == '__main__':
-    #relitu()
-    #score()
+    relitu()
+    score()
     js()

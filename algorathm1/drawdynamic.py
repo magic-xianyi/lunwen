@@ -10,6 +10,8 @@ def draw_histogram_line():
     yc = np.copy(y)
     yc = yc / 1000000
     # 绘制柱状图
+    from matplotlib.backends.backend_svg import FigureCanvasSVG
+    fig = plt.figure()
     plt.bar(x, yc, width=1, label='数据')
     plt.xlabel('数据项')  # 横轴标签
     plt.ylabel('数值')  # 纵轴标签
@@ -23,6 +25,9 @@ def draw_histogram_line():
     plt.legend()
     # 显示图形
     plt.show()
+    canvas = FigureCanvasSVG(fig)
+    # 将绘图输出为SVG格式
+    canvas.print_svg('D:\\桌面\\svg\\算法1\\动态阈值.svg')
 
 if __name__ == '__main__':
     draw_histogram_line()

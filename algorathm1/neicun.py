@@ -5,6 +5,8 @@ plt.rcParams["font.sans-serif"] = ["SimHei"]  # 设置字体中文乱码问题
 plt.rcParams["axes.unicode_minus"] = False  # 该语句解决图像中的“-”负号的乱码问题
 
 if __name__ == '__main__':
+    from matplotlib.backends.backend_svg import FigureCanvasSVG
+    fig = plt.figure()
 
     name = ['THOC', 'USAD', 'TranAD', 'AGAE']
     num = [40.25392, 16.40497, 30.89652, 30.09093]
@@ -28,3 +30,6 @@ if __name__ == '__main__':
     plt.legend(fontsize=9)
     #plt.ylim(0.8, 1)
     plt.show()
+    canvas = FigureCanvasSVG(fig)
+    # 将绘图输出为SVG格式
+    canvas.print_svg('D:\\桌面\\svg\\算法1\\内存对比.svg')
