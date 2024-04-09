@@ -1,7 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 from scipy.interpolate import interp1d
-plt.rcParams["font.sans-serif"] = ["SimHei"]  # 设置字体中文乱码问题
+plt.rcParams["font.sans-serif"] = ["Times New Roman"]  # 设置字体中文乱码问题
 plt.rcParams["axes.unicode_minus"] = False  # 该语句解决图像中的“-”负号的乱码问题
 
 if __name__ == '__main__':
@@ -25,11 +25,13 @@ if __name__ == '__main__':
     # 银牌图形
     plt.bar(ac, size, width=width, color='lightsteelblue', label='内存消耗（MB）')
     plt.xticks(x + width, labels=name)
-    plt.xlabel('模型', fontsize=11)
-    plt.ylabel('数值', fontsize=11)
-    plt.legend(fontsize=9)
+    plt.xlabel('模型', fontfamily='SimSun', fontsize=13)
+    plt.ylabel('数值', fontfamily='SimSun', fontsize=13)
+    legend_props = {'family': 'SimSun', 'size': 10}
+    # 添加图例并设置字体属性
+    plt.legend(prop=legend_props)
     #plt.ylim(0.8, 1)
     plt.show()
     canvas = FigureCanvasSVG(fig)
     # 将绘图输出为SVG格式
-    canvas.print_svg('D:\\桌面\\svg\\算法1\\内存对比.svg')
+    canvas.print_svg('C:\\Users\\helloworld\\Desktop\\svg\\算法1\\内存对比.svg')

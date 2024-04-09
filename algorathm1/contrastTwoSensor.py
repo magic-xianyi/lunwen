@@ -1,7 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 from scipy.interpolate import interp1d
-plt.rcParams["font.sans-serif"] = ["SimHei"]  # 设置字体中文乱码问题
+plt.rcParams["font.sans-serif"] = ["Times New Roman"]  # 设置字体中文乱码问题
 plt.rcParams["axes.unicode_minus"] = False  # 该语句解决图像中的“-”负号的乱码问题
 
 if __name__ == '__main__':
@@ -23,11 +23,11 @@ if __name__ == '__main__':
     plt.bar(re, f1_score1, width=width, color='lightsteelblue', label='AIT504')
     plt.bar(f1, f1_score2, width=width, color='wheat', label='PIT503')
     plt.xticks(x + 1.5*width, labels=name)
-    plt.xlabel('模型', fontsize=12)
+    plt.xlabel('模型', fontfamily='SimSun', fontsize=13)
     plt.ylabel('F1_Score', fontsize=12)
     plt.legend()
     plt.ylim(0.4, 1.2)
     plt.show()
     canvas = FigureCanvasSVG(fig)
     # 将绘图输出为SVG格式
-    canvas.print_svg('D:\\桌面\\svg\\算法1\\传感器对比.svg')
+    canvas.print_svg('C:\\Users\\helloworld\\Desktop\\svg\\算法1\\传感器对比.svg')

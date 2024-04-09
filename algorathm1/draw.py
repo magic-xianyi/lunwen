@@ -6,7 +6,7 @@ from matplotlib.backends.backend_svg import FigureCanvasSVG
 def draw_histogram_line():
     # 创建一个图像
     fig = plt.figure()
-    plt.rcParams['font.sans-serif'] = ['SimHei']
+    plt.rcParams['font.sans-serif'] = ['Times New Roman']
     plt.rcParams['axes.unicode_minus'] = False
     # 创建数据
     x = ['2012', '2013', '2014', '2015', '2016', '2017', '2018', '2019', '2020',
@@ -16,8 +16,8 @@ def draw_histogram_line():
     y2 = [407,  2395]
     # 绘制柱状图
     plt.bar(x, y1, label='文献数量')
-    plt.xlabel('年份', fontsize=13)  # 横轴标签
-    plt.ylabel('文献数量', fontsize=13)  # 纵轴标签
+    plt.xlabel('年份', fontsize=13, fontfamily='SimSun')  # 横轴标签
+    plt.ylabel('文献数量', fontsize=13, fontfamily='SimSun')  # 纵轴标签
 
     # # 添加标签
     # for a, b in zip(x, y1):
@@ -34,7 +34,7 @@ def draw_histogram_line():
     canvas = FigureCanvasSVG(fig)
 
     # 将绘图输出为SVG格式
-    canvas.print_svg('example.svg')
+    canvas.print_svg('C:\\Users\\helloworld\\Desktop\\svg\\算法1\\文献.svg')
 
 if __name__ == '__main__':
     draw_histogram_line()

@@ -1,7 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
-plt.rcParams["font.sans-serif"] = ["SimHei"]  # 设置字体中文乱码问题
+plt.rcParams["font.sans-serif"] = ["simSun"]  # 设置字体中文乱码问题
 plt.rcParams["axes.unicode_minus"] = False  # 该语句解决图像中的“-”负号的乱码问题
 if __name__ == '__main__':
     precision = np.copy([0.9495, 0.9262, 0.9371, 0.9131]) - (0.9495 - 0.9267)
@@ -31,7 +31,7 @@ if __name__ == '__main__':
         plt.bar(index + row * w, pltPD.values[row], width=w, align='center', color=colors[row],
                 label=pltPD.index.values[row])
     # 添加图例
-    ax.legend(fontsize=16)
+    ax.legend(fontsize=18)
     cellColours = [['gainsboro', 'white', 'gainsboro', 'white'],
                    ['white', 'wheat', 'white', 'wheat'],
                    ['lightsteelblue', 'white', 'lightsteelblue', 'white']]
@@ -43,14 +43,14 @@ if __name__ == '__main__':
                           colLabels=pltPD.columns.values,
                           loc='bottom',
                           cellLoc='center')
-    the_table.set_fontsize(15)
+    the_table.set_fontsize(18)
     the_table.scale(1, 2.5)  # may help
     plt.xticks([])
-    plt.yticks(fontsize=15)
+    plt.yticks(fontsize=18)
     plt.ylim(0.4, 1.2)
-    plt.ylabel("数值", fontsize=18)
+    plt.ylabel("数值", fontsize=19)
     plt.show()
     from matplotlib.backends.backend_svg import FigureCanvasSVG
     canvas = FigureCanvasSVG(fig)
     # 将绘图输出为SVG格式
-    canvas.print_svg('D:\\桌面\\svg\\算法1\\消融实验.svg')
+    canvas.print_svg('C:\\Users\\helloworld\\Desktop\\svg\\算法1\\消融实验.svg')

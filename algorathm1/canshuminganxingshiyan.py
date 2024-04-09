@@ -1,7 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 from scipy.interpolate import interp1d
-plt.rcParams["font.sans-serif"] = ["SimHei"]  # 设置字体中文乱码问题
+plt.rcParams["font.sans-serif"] = ["Times New Roman"]  # 设置字体中文乱码问题
 plt.rcParams["axes.unicode_minus"] = False  # 该语句解决图像中的“-”负号的乱码问题
 
 def quanzhong():
@@ -37,14 +37,15 @@ def widowsize():
     plt.plot(x + width / 2, f1_score, 'orange', marker='*', linewidth=1, label='F1_Score')
     plt.bar(r, recall, width=width, color='lightsteelblue', label='Recall')
     plt.xticks(x + width / 2, labels=w)
-    plt.xlabel('窗口大小', fontsize=11)
-    plt.ylabel('数值', fontsize=11)
-    plt.legend(fontsize=9)
+    plt.xlabel('窗口大小', fontsize=13, fontfamily='SimSun')
+    plt.ylabel('数值', fontsize=13, fontfamily='SimSun')
+    # 添加图例并设置字体属性
+    plt.legend(fontsize=11)
     plt.ylim(0.6, 1.1)
     plt.show()
     canvas = FigureCanvasSVG(fig)
     # 将绘图输出为SVG格式
-    canvas.print_svg('D:\\桌面\\svg\\算法1\\窗口.svg')
+    canvas.print_svg('C:\\Users\\helloworld\\Desktop\\svg\\算法1\\窗口.svg')
 
 def latentsize():
     f1_score = np.copy([0.8252, 0.8301, 0.8377, 0.8571, 0.8234])
@@ -68,14 +69,15 @@ def latentsize():
     plt.plot(x + width / 2, f1_score, 'orange', marker='*', linewidth=1, label='F1_Score')
     plt.bar(r, recall, width=width, color='lightsteelblue', label='Recall')
     plt.xticks(x + width / 2, labels=w)
-    plt.xlabel('潜空间大小', fontsize=11)
-    plt.ylabel('数值', fontsize=11)
-    plt.legend(fontsize=9)
+    plt.xlabel('潜空间大小', fontsize=13, fontfamily='SimSun')
+    plt.ylabel('数值', fontsize=13, fontfamily='SimSun')
+    # 添加图例并设置字体属性
+    plt.legend(fontsize=11)
     plt.ylim(0.6, 1.1)
     plt.show()
     canvas = FigureCanvasSVG(fig)
     # 将绘图输出为SVG格式
-    canvas.print_svg('D:\\桌面\\svg\\算法1\\潜空间数据.svg')
+    canvas.print_svg('C:\\Users\\helloworld\\Desktop\\svg\\算法1\\潜空间数据.svg')
 
 if __name__ == '__main__':
     #quanzhong()

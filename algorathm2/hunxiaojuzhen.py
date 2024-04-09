@@ -5,7 +5,7 @@ import seaborn as sns
 plt.rcParams["font.sans-serif"] = ["SimHei"]  # 设置字体中文乱码问题
 plt.rcParams["axes.unicode_minus"] = False  # 该语句解决图像中的“-”负号的乱码问题
 if __name__ == '__main__':
-    total = 449919 - 12
+    total = 449919 - 10
     TP = 43258 #真阳
     precision = 0.9495
     recall = 0.7811
@@ -39,5 +39,5 @@ if __name__ == '__main__':
     from matplotlib.backends.backend_svg import FigureCanvasSVG
     canvas = FigureCanvasSVG(fig)
     # 将绘图输出为SVG格式
-    canvas.print_svg('D:\\桌面\\svg\\算法2\\混淆矩阵.svg')
+    canvas.print_svg('C:\\Users\\helloworld\\Desktop\\svg\\算法2\\混淆矩阵.svg')
 
