@@ -1,7 +1,7 @@
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
-plt.rcParams["font.sans-serif"] = ["SimHei"]  # 设置字体中文乱码问题
+plt.rcParams["font.sans-serif"] = ["Times New Roman"]  # 设置字体中文乱码问题
 plt.rcParams["axes.unicode_minus"] = False  # 该语句解决图像中的“-”负号的乱码问题
 
 def xingdian():
@@ -22,9 +22,9 @@ def xingdian():
 
     plt.annotate('MICNN', (cost[6], score[6]), textcoords="offset points", xytext=(-6, -12), ha='right', fontsize=9)
     plt.annotate('AGAE', (cost[3], score[3]), textcoords="offset points", xytext=(9, 0), ha='left', fontsize=9)
-    plt.xlabel('资源消耗', fontsize=12)
+    plt.xlabel('资源消耗', fontsize=13, fontfamily='SimSun')
     plt.ylabel('F1_Score', fontsize=12, labelpad=10)
-    plt.legend(fontsize=9, )
+    plt.legend(fontsize=9)
     plt.grid()
     plt.show()
     from matplotlib.backends.backend_svg import FigureCanvasSVG
@@ -51,7 +51,7 @@ def shang():
     plt.plot(entropy, TranAD, marker='D', markersize=4, linewidth=1, label='TranAD')
     plt.plot(entropy, THOC, marker='+', linewidth=1, label='THOC')
     plt.plot(entropy, USAD, marker='v', linewidth=1, label='USAD')
-    plt.xlabel('熵大小', fontsize=12)
+    plt.xlabel('熵大小', fontsize=13, fontfamily='SimSun')
     plt.ylabel('F1_Score', fontsize=12, labelpad=10)
     plt.legend(fontsize=9)
     plt.show()

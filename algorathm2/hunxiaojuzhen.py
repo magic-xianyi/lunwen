@@ -2,7 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from sklearn.metrics import confusion_matrix
 import seaborn as sns
-plt.rcParams["font.sans-serif"] = ["SimHei"]  # 设置字体中文乱码问题
+plt.rcParams["font.sans-serif"] = ["Times New Roman"]  # 设置字体中文乱码问题
 plt.rcParams["axes.unicode_minus"] = False  # 该语句解决图像中的“-”负号的乱码问题
 if __name__ == '__main__':
     total = 449919 - 10
@@ -32,12 +32,14 @@ if __name__ == '__main__':
     # 使用seaborn绘制混淆矩阵热图
     fig = plt.figure()
     sns.heatmap(confusion_matrix, annot=True, fmt='d', cmap='Blues', xticklabels=['正常', '异常'],
-                yticklabels=['正常', '异常'], annot_kws = {"size": 12})
-    plt.xlabel('预测标签', fontsize=13)
-    plt.ylabel('真实标签', fontsize=13)
+                yticklabels=['正常', '异常'], annot_kws={"size": 12})
+    plt.xlabel('预测标签', fontsize=13, fontfamily='SimSun')
+    plt.ylabel('真实标签', fontsize=13, fontfamily='SimSun')
+    plt.xticks(fontsize=12, fontfamily='SimSun')
+    plt.yticks(fontsize=12, fontfamily='SimSun')
     plt.show()
     from matplotlib.backends.backend_svg import FigureCanvasSVG
     canvas = FigureCanvasSVG(fig)
     # 将绘图输出为SVG格式
-    canvas.print_svg('C:\\Users\\helloworld\\Desktop\\svg\\算法2\\混淆矩阵.svg')
+    canvas.print_svg('D:\\桌面\\svg\\算法2\\混淆矩阵.svg')
 

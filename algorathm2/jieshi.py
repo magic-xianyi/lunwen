@@ -1,6 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
-plt.rcParams["font.sans-serif"] = ["SimHei"]  # 设置字体中文乱码问题
+plt.rcParams["font.sans-serif"] = ["Times New Roman"]  # 设置字体中文乱码问题
 plt.rcParams["axes.unicode_minus"] = False  # 该语句解决图像中的“-”负号的乱码问题
 y_normal = [-0.2574864,-0.2574616,-0.2574006,-0.2573122,-0.25719385,-0.25706403,-0.2569219,-0.2574864,-0.2574616,-0.2574006,-0.2573122,-0.25719385,-0.25706403,-0.2569219,-0.25676083,-0.2566054,-0.2564543,-0.25631737,-0.25619393,-0.25609617,-0.25602733,-0.2559872,-0.25596802,-0.2559767,-0.25600093,-0.2560424,-0.25611334,-0.2559864,-0.2559616,-0.2559006,-0.2558122,-0.25569385,-0.25556403,-0.2554219,-0.25526083,-0.2551054,-0.2549543,-0.25481737,-0.25469393,-0.25459617,-0.25452733,-0.2544872,-0.25446802,-0.2544767,-0.25450093,-0.2545424,-0.25461334,-0.25468203,-0.25475106,-0.2547999,-0.25485024,-0.25490555,-0.25495768,-0.2549856,-0.25498146,-0.25493896,-0.2548594,-0.25475553,-0.25485045,-0.25493607,-0.25498146,-0.25493896,-0.25468203,-0.25475106,-0.2547999,-0.25485024,-0.25490555,-0.25495768,-0.2549856,-0.25498146,-0.25493896,-0.2548594,-0.25475553,-0.25485045,-0.25493607,-0.25498146,-0.25493896,-0.2548594]
 y_attack = [-0.2559864, -0.2559616, -0.2559006, -0.2558122, -0.25569385, -0.25556403, -0.2554219,-0.2559864, -0.2559616, -0.2559006, -0.2558122, -0.25569385, -0.25556403, -0.2554219, -0.25526083, -0.2551054, -0.2549543, -0.25481737, -0.25469393, -0.25459617, -0.25452733, -0.2544872, -0.25446802, -0.2544767, -0.25450093, -0.2545424, -0.25461334, -0.25468203, -0.25475106, -0.2547999, -0.25485024, -0.25490555, -0.25495768, -0.2549856, -0.25498146, -0.25493896, -0.2548594, -0.25475553, -0.25485045, -0.25493607, -0.25664738, -0.25858563, -0.2608454, -0.26370472, -0.26677293, -0.2702589, -0.2741961, -0.27756503, -0.28110075, -0.28316438, -0.285196, -0.28546947, -0.28359014, -0.28047094, -0.27594104, -0.270804, -0.26456067, -0.26025072, -0.25791478, -0.25557652, -0.2526468, -0.25098673, -0.2491112, -0.24906875, -0.2496371, -0.25131595, -0.2524975, -0.25374573, -0.25603694, -0.25529763, -0.2522108, -0.24981293, -0.24798912, -0.24642351, -0.2449933, -0.24347463, -0.24176402, -0.23990783]
@@ -34,19 +34,21 @@ def score():
 
     plt.plot(x, y_attack_interp, 'r', label='异常数据')
     plt.plot(x, y_normal_interp, label='正常数据')
-    plt.title('异常得分')
-    plt.xlabel('时间索引', fontsize=12)
-    plt.ylabel('数值', fontsize=12)
-    plt.legend(fontsize='9')
-    plt.text(0.5, -0.35, '(a)', ha='center', va='center', transform=plt.gca().transAxes, fontsize=16)
+    plt.xlabel('时间索引', fontsize=12, fontfamily='SimSun')
+    plt.ylabel('数值', fontsize=12, fontfamily='SimSun')
+    legend_props = {'family': 'SimSun', 'size': 9}
+    # 添加图例并设置字体属性
+    plt.legend(prop=legend_props)
+    plt.text(0.5, -0.35, '(a) 异常得分', ha='center', va='center', transform=plt.gca().transAxes, fontsize=13, fontfamily='SimSun')
     plt.subplot(2, 1, 2)
     plt.plot(x, data_attack_interp, 'r', label='异常数据')
     plt.plot(x, data_normal_interp, label='正常数据')
-    plt.title('原始数据')
-    plt.xlabel('时间索引', fontsize=12)
-    plt.ylabel('数值', fontsize=12)
-    plt.legend(fontsize='9')
-    plt.text(0.5, -0.35, '(b)', ha='center', va='center', transform=plt.gca().transAxes, fontsize=16)
+    plt.xlabel('时间索引', fontsize=12, fontfamily='SimSun')
+    plt.ylabel('数值', fontsize=12, fontfamily='SimSun')
+    legend_props = {'family': 'SimSun', 'size': 9}
+    # 添加图例并设置字体属性
+    plt.legend(prop=legend_props)
+    plt.text(0.5, -0.35, '(b) 原始数据', ha='center', va='center', transform=plt.gca().transAxes, fontsize=13, fontfamily='SimSun')
     plt.tight_layout()
     plt.show()
     from matplotlib.backends.backend_svg import FigureCanvasSVG
@@ -81,8 +83,8 @@ def relitu():
     plt.colorbar()  # 添加颜色条
     # 设置纵坐标刻度标签为每列的名称
     plt.yticks(np.arange(len(column_names)), column_names, fontsize=9, fontfamily='Arial')
-    plt.xlabel('时间索引', fontsize=12)
-    plt.ylabel('传感器名字', fontsize=12)
+    plt.xlabel('时间索引', fontsize=12, fontfamily='SimSun')
+    plt.ylabel('传感器名字', fontsize=12, fontfamily='SimSun')
     plt.show()
     from matplotlib.backends.backend_svg import FigureCanvasSVG
     canvas = FigureCanvasSVG(fig)
@@ -106,12 +108,12 @@ def js():
     # 添加数值标签
     for i, v in enumerate(array):
         plt.text(v + 0.02, i, "{:.4f}".format(v), va='center')
-    plt.xlabel('异常得分绝对值', fontsize=12)
-    plt.ylabel('传感器名字', fontsize=12)
+    plt.xlabel('异常得分绝对值', fontsize=12, fontfamily='SimSun')
+    plt.ylabel('传感器名字', fontsize=12, fontfamily='SimSun')
     # 调整 y 轴刻度范围，从而设置柱体的宽度
     plt.ylim(-0.6, len(name))
     plt.xlim(0, 1.9)
-    plt.yticks(fontsize=9, fontfamily='Arial')
+    plt.yticks(fontsize=9)
     from matplotlib.backends.backend_svg import FigureCanvasSVG
     canvas = FigureCanvasSVG(fig)
     # 将绘图输出为SVG格式
@@ -119,6 +121,6 @@ def js():
     plt.show()
 
 if __name__ == '__main__':
-    relitu()
-    score()
+    #relitu()
+    #score()
     js()

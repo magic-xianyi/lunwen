@@ -1,7 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 from scipy.interpolate import interp1d
-plt.rcParams["font.sans-serif"] = ["SimHei"]  # 设置字体中文乱码问题
+plt.rcParams["font.sans-serif"] = ["Times New Roman"]  # 设置字体中文乱码问题
 plt.rcParams["axes.unicode_minus"] = False  # 该语句解决图像中的“-”负号的乱码问题
 
 if __name__ == '__main__':
@@ -21,8 +21,8 @@ if __name__ == '__main__':
     plt.plot(x_smooth, y_smooth, label='AUC=0.9122')
     plt.plot([0, 1], [1, 0], linestyle='dotted', color='r')
     plt.plot(0.156, 0.844, 'ro', markersize=5)  # 'ro'表示红色圆点
-    plt.xlabel('假阳率', fontsize=13)
-    plt.ylabel('真阳率', fontsize=13)
+    plt.xlabel('假阳率', fontsize=13, fontfamily='SimSun')
+    plt.ylabel('真阳率', fontsize=13, fontfamily='SimSun')
     plt.legend(loc='lower right')
     plt.grid(True)
     plt.show()
