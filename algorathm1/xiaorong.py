@@ -1,7 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
-plt.rcParams["font.sans-serif"] = ["simSun"]  # 设置字体中文乱码问题
+plt.rcParams["font.sans-serif"] = ["Times New Roman"]  # 设置字体中文乱码问题
 plt.rcParams["axes.unicode_minus"] = False  # 该语句解决图像中的“-”负号的乱码问题
 if __name__ == '__main__':
     precision = np.copy([0.9495, 0.9262, 0.9371, 0.9131]) - (0.9495 - 0.9267)
@@ -13,7 +13,7 @@ if __name__ == '__main__':
     for i in range(4):
         f1_socre[i] = format(f1_socre[i], '.4f')
     data = [recall, precision, f1_socre]
-    columns = ('完整模型', '去除ISOA模块', '去除GRU模块', '去除阈值模块')
+    columns = ('AGAE', 'AGAE-ISOA', 'AGAE-GRU', 'AGAE-DT')
     rows = ['Recall', 'Precision', 'F1_Score']
     pltPD = pd.DataFrame(data, columns=columns, index=rows)
     # 按照model来进行汇总, 这里共有5个model
@@ -48,7 +48,7 @@ if __name__ == '__main__':
     plt.xticks([])
     plt.yticks(fontsize=18)
     plt.ylim(0.4, 1.2)
-    plt.ylabel("数值", fontsize=19)
+    plt.ylabel("数值", fontsize=19, fontfamily='simSun')
     plt.show()
     from matplotlib.backends.backend_svg import FigureCanvasSVG
     canvas = FigureCanvasSVG(fig)

@@ -1,7 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
-plt.rcParams["font.sans-serif"] = ["SimSun"]  # 设置字体中文乱码问题
+plt.rcParams["font.sans-serif"] = ["Times New Roman"]  # 设置字体中文乱码问题
 plt.rcParams["axes.unicode_minus"] = False  # 该语句解决图像中的“-”负号的乱码问题
 if __name__ == '__main__':
     precision = np.copy([0.9267, 0.9186, 0.9231, 0.8912]) - (0.9267 - 0.9495)
@@ -12,7 +12,7 @@ if __name__ == '__main__':
         f1_socre[i] = format(f1_socre[i], '.4f')
         recall[i] = format(f1_socre[i] * precision[i] / (2 * precision[i] - f1_socre[i]), '.4f')
     data = [recall, precision, f1_socre]
-    columns = ('完整模型', '去除注意力机制', '去除相关性矩阵', '去除集成网络机制')
+    columns = ('MICNN', 'MICNN-Attention', 'MICNN-Correlation', 'MICNN-Integration')
     rows = ['Recall', 'Precision', 'F1_Score']
     pltPD = pd.DataFrame(data, columns=columns, index=rows)
     # 按照model来进行汇总, 这里共有5个model
@@ -47,7 +47,7 @@ if __name__ == '__main__':
     plt.xticks([])
     plt.yticks(fontsize=18)
     plt.ylim(0.4, 1.1)
-    plt.ylabel("数值", fontsize=19)
+    plt.ylabel("数值", fontsize=19, fontfamily='SimSun')
     plt.show()
     from matplotlib.backends.backend_svg import FigureCanvasSVG
     canvas = FigureCanvasSVG(fig)
